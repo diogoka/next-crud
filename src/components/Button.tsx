@@ -9,7 +9,7 @@ export default function Button(props:ButtonProps){
     const cor = props.color ?? 'gray'
     return(
         <button onClick={props.onClick} className={`            
-            bg-gradient-to-r from-green-400 to-green-700
+            bg-blue-500 hover:bg-blue-700
             text-white px-4 py-2 rounded-md
             ${props.className} 
         `}>

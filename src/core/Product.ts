@@ -1,16 +1,16 @@
-export default class Client{
+export default class Product{
     #id: string
     #name: string
-    #age: number
+    #price: number
 
-    constructor(name: string, age: number, id: string = null){
+    constructor(name: string, price: number, id: string = null){
         this.#name = name
-        this.#age = age
+        this.#price = price
         this.#id = id
     }
 
     static empty(){
-        return new Client('',0)
+        return new Product('',0)
     }
 
     get id(){
@@ -21,7 +21,7 @@ export default class Client{
         return this.#name
     }
 
-    get age(){
-        return this.#age
+    get price(){
+        return this.#price
     }
 }
