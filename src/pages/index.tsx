@@ -2,42 +2,42 @@ import Button from "../components/Button";
 import Form from "../components/Form";
 import Layout from "../components/Layout";
 import Table from "../components/Table";
-import useClients from "../hooks/useClients";
+import useProducts from "../hooks/useProducts";
 
 export default function Home() {
 
   const {
-    client,
-    clients,    
-    newClient, 
-    saveClient, 
-    selectClient, 
-    deleteClient,     
+    product,
+    products,    
+    newProduct, 
+    saveProduct, 
+    selectProduct, 
+    deleteProduct,     
     visibleTable,
     showTable
-  } = useClients()  
+  } = useProducts()  
 
   return (
     <div className={`
     flex justify-center items-center h-screen
-    bg-gradient-to-r from-blue-500 to-purple-500
+    bg-gray-200
     text-white
     `}>
-      <Layout title="Simple CRUD">
+      <Layout title="Product Registration">
         {visibleTable ? (
           <>
           <div className="flex justify-end">
-          <Button className="mb-4" onClick={newClient}>New Client</Button>
+          <Button className="mb-4" onClick={newProduct}>New Product</Button>
           </div>
-          <Table clients={clients} 
-                  clientSelected={selectClient}
-                  clientDeleted={deleteClient}        
+          <Table products={products} 
+                  productSelected={selectProduct}
+                  productDeleted={deleteProduct}        
           />          
           </>
         ):(
           <Form 
-              client={client}
-              clientChanged={saveClient} 
+              product={product}
+              productChanged={saveProduct} 
               canceled={showTable}
           />
         )}

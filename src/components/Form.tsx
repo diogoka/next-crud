@@ -1,34 +1,33 @@
 import { useState } from "react";
-import Client from "../core/Client";
+import Product from "../core/Product";
 import Button from "./Button";
 import Entry from "./Entry";
 
 interface FormProps {
-    client: Client
-    clientChanged?: (client: Client) => void
+    product: Product
+    productChanged?: (product: Product) => void
     canceled: () => void
-
 }
 
 export default function Form(props: FormProps){
-    const id = props.client?.id
-    const[name, setName] = useState(props.client?.name ?? '')
-    const[age, setAge] = useState(props.client?.age ?? 0)
+    const id = props.product?.id
+    const[name, setName] = useState(props.product?.name ?? '')
+    const[price, setPrice] = useState(props.product?.price ?? 0)
     
     return(
         <div>
             {id ? (
-                <Entry readOnly text="Código" value={id} className="mb-5"></Entry>
+                <Entry readOnly text="ID" value={id} className="mb-5"></Entry>
             ) : false}
             <Entry text="Name" value={name} valueChanged={setName} className="mb-5"></Entry>
-            <Entry text="Age" type="number" value={age} valueChanged={setAge}></Entry>
+            <Entry text="Price" type="number" value={price} valueChanged={setPrice}></Entry>
             <div className="flex justify-end mt-7">
                 <Button 
-                    className="mr-2 bg-gradient-to-r from-blue-400 to-blue-700"
-                    onClick={() => props.clientChanged?.(new Client(name, +age, id))}>                    
+                    className="mr-2 bg-green-500 hover:bg-green-400"
+                    onClick={() => props.productChanged?.(new Product(name, price, id))}>                    
                     {id? 'Edit' : 'Save'}</Button>
                 <Button
-                    className="mr-2 bg-gradient-to-r from-gray-400 to-gray-700" 
+                    className="mr-2 bg-red-500 hover:bg-red-400" 
                     onClick={props.canceled}>Cancel</Button>
             </div>
 

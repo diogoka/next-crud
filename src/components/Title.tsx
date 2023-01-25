@@ -6,7 +6,7 @@ export default function Title(props){
                 {props.children}
             
             </h1>
-            <hr className="border-2 border-purple-500"/>
+            <hr className="border-2 border-green-500"/>
         </div>
     )
 }
