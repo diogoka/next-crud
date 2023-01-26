@@ -24,7 +24,7 @@ export default function Form(props: FormProps){
             <div className="flex justify-end mt-7">
                 <Button 
                     className="mr-2 bg-green-500 hover:bg-green-400"
-                    onClick={() => props.productChanged?.(new Product(name, price, id))}>                    
+                    onClick={() => props.productChanged?.(new Product(name, Number(price), id))}>                    
                     {id? 'Edit' : 'Save'}</Button>
                 <Button
                     className="mr-2 bg-red-500 hover:bg-red-400" 
