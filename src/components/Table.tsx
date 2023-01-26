@@ -31,7 +31,7 @@ export default function Table(props: TableProps){
                     className={`${i%2 === 0 ? 'bg-gray-200' : 'bg-gray-350'}`}> 
                     <td className="text-left p-4">{product.id}</td>
                     <td className="text-left p-4">{product.name}</td>
-                    <td className="text-left p-4">CA$ {product.price}</td>
+                    <td className="text-left p-4">CA$ {product.price.toLocaleString('en-US')}</td>
                     {showActions ? actionsRender(product) : false}
                 </tr>
             )
@@ -63,6 +63,24 @@ export default function Table(props: TableProps){
         )
     }
 
+    function footRender(){
+        let total = 0
+        props.products.forEach(e =>{
+            total = total + e.price
+            return total
+        })
+
+        return (
+            <tr> 
+                <td className="text-left p-4">Total</td>
+                <td className="text-left p-4"></td>
+                <td className={`text-left p-4`}>CA$ {total.toLocaleString('en-US')}</td>
+                <td className="text-left p-4"></td>
+            </tr>
+        )
+    }
+
+
     return(
         <table className="w-full rounded-xl overflow-hidden">
             <thead className={`
@@ -75,6 +93,10 @@ export default function Table(props: TableProps){
             <tbody>
                 {infoRender()}
             </tbody>
+            <tfoot className={
+                `text-black-400
+                bg-green-100`
+            }>{footRender()}</tfoot>
         </table>
     )
 }
