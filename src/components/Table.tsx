@@ -82,21 +82,50 @@ export default function Table(props: TableProps){
 
 
     return(
-        <table className="w-full rounded-xl overflow-hidden">
-            <thead className={`
-                text-gray-100
-                bg-gray-500
+        // <table className="w-full rounded-xl overflow-hidden">
+        //     <thead className={`
+        //         text-gray-100
+        //         bg-gray-500
             
-            `}> 
-                {headerRender()}
-            </thead>
-            <tbody>
-                {infoRender()}
-            </tbody>
-            <tfoot className={
-                `text-black-400
-                bg-green-100`
-            }>{footRender()}</tfoot>
-        </table>
+        //     `}> 
+        //         {headerRender()}
+        //     </thead>
+        //     <tbody>
+        //         {infoRender()}
+        //     </tbody>
+        //     <tfoot className={
+        //         `text-black-400
+        //         bg-green-100`
+        //     }>{footRender()}</tfoot>
+        // </table>
+
+
+        <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div className="overflow-hidden">
+                        <table className="w-full rounded-xl overflow-hidden">
+                            <thead className={`
+                                text-gray-100
+                                bg-gray-500
+                            
+                            `}> 
+                            {headerRender()}
+                            </thead>
+                            <tbody>
+                            {infoRender()}
+                            </tbody>
+                            <tfoot className={
+                                `text-black-400
+                                bg-green-100`
+                                }>{footRender()}
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
     )
 }

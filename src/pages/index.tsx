@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className={`
     flex justify-center items-center h-screen
-    bg-gray-200
+    bg-blue-200
     text-white
     `}>
       <Layout title="Product Registration">
