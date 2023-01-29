@@ -16,7 +16,6 @@ export default function Table(props: TableProps){
     function headerRender(){
         return(
             <tr>
-                <th className="text-left p-4">ID</th>
                 <th className="text-left p-4">Name</th>
                 <th className="text-left p-4">Price</th>
                 {showActions? <th className="p-4">Actions</th> : false}
@@ -29,7 +28,6 @@ export default function Table(props: TableProps){
             return (
                 <tr key={product.id}
                     className={`${i%2 === 0 ? 'bg-gray-200' : 'bg-gray-350'}`}> 
-                    <td className="text-left p-4">{product.id}</td>
                     <td className="text-left p-4">{product.name}</td>
                     <td className="text-left p-4">CA$ {product.price.toLocaleString('en-US')}</td>
                     {showActions ? actionsRender(product) : false}
@@ -73,7 +71,6 @@ export default function Table(props: TableProps){
         return (
             <tr> 
                 <td className="text-left p-4">Total</td>
-                <td className="text-left p-4"></td>
                 <td className={`text-left p-4`}>CA$ {total.toLocaleString('en-US')}</td>
                 <td className="text-left p-4"></td>
             </tr>
@@ -82,24 +79,6 @@ export default function Table(props: TableProps){
 
 
     return(
-        // <table className="w-full rounded-xl overflow-hidden">
-        //     <thead className={`
-        //         text-gray-100
-        //         bg-gray-500
-            
-        //     `}> 
-        //         {headerRender()}
-        //     </thead>
-        //     <tbody>
-        //         {infoRender()}
-        //     </tbody>
-        //     <tfoot className={
-        //         `text-black-400
-        //         bg-green-100`
-        //     }>{footRender()}</tfoot>
-        // </table>
-
-
         <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
